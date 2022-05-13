@@ -25,9 +25,9 @@ Constraints:
 1 <= s.length <= 104
 s consists of parentheses only '()[]{}'.
 
-#### Submission:<br>
-<img src="images/submission.png" width=400>
+### Submission:<br>
+<img src="images/submission.png" width=500>
 
-#### Tests:<br>
-<img src="images/doctest_result.png" width=400>
+### Tests:<br>
+<img src="images/doctest_result.png" width=500>
 
