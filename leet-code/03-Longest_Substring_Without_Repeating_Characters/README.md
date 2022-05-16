@@ -34,3 +34,4 @@ s consists of English letters, digits, symbols and spaces.
 ### Tests:<br>
 <img src="images/doctest.png" width=500>
 
+
