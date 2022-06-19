@@ -1,6 +1,7 @@
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        # Iterate through each index, calculate the sum of left vs right by using slicing and sum()
+        # At index 0, calculate right and left sum and compare
+        # Iterate through index 1 to end, calculate right and left by subtracting and adding element at index and compare the sum
         # If the two sums are equal -> return the index
         
         
