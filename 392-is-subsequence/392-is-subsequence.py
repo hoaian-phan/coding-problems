@@ -7,8 +7,8 @@ class Solution:
         if len(s) == 0:
             return True
         
-        if len(s) > len(t):
-            return False
+#         if len(s) > len(t):
+#             return False
         
         s_pointer = 0
         t_pointer = 0
