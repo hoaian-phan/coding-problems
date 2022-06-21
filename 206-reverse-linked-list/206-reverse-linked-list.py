@@ -15,7 +15,7 @@ class Solution:
         
         
         prev = None
-        next_node = ListNode()
+        next_node = None
         
         while head:
             next_node = head.next
