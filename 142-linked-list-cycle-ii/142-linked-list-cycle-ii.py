@@ -9,9 +9,6 @@ class Solution:
         # keep track of traversed node in a set
         # check each key to see if it is in the set -> return value of it
         
-        if not head or not head.next:
-            return None
-        
         current = head
         node_set = set()
         
