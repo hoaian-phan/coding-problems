@@ -6,22 +6,20 @@
 
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # keep track of traversed node and its index in a dictionary
-        # check each key to see if it is in the dict -> return value of it
+        # keep track of traversed node in a set
+        # check each key to see if it is in the set -> return value of it
         
         if not head or not head.next:
             return None
         
         current = head
-        index = 0
-        node_dicts = {}
+        node_set = set()
         
         while current:
-            if current not in node_dicts:
-                node_dicts[current] = current
-                index += 1
+            if current not in node_set:
+                node_set.add(current)
             else:
-                return node_dicts[current]
+                return current
             current = current.next
             
         return None
