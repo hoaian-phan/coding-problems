@@ -2,14 +2,10 @@ class Solution:
     def fib(self, n: int) -> int:
         # Use cache 
         
-        cache = {}
-        if n in cache:
-            return cache[n]
+        cache = {0: 0, 1: 1}
         
-        if n < 2:
-            return n
-        
-        cache[n] = self.fib(n-1) + self.fib(n-2)
+        for n in range(2, n+1):
+            cache[n] = cache[n-1] + cache[n-2]
         
         return cache[n]
         
