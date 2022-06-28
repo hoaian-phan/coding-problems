@@ -1,10 +1,16 @@
 class Solution:
     def fib(self, n: int) -> int:
-        # Use recursion
-        # base case 0 and 1
-        # recursive case sum of fib(n-1) + fib(n-2)
+        # Use cache 
         
-        if n == 0: return 0
-        elif n == 1: return 1
+        cache = {}
+        if n in cache:
+            return cache[n]
         
-        return self.fib(n-1) + self.fib(n-2)
+        if n < 2:
+            return n
+        
+        cache[n] = self.fib(n-1) + self.fib(n-2)
+        
+        return cache[n]
+        
+        
