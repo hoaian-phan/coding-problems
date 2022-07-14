@@ -1,23 +1,23 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        # Make 2 dicts {char: count}
-        # Compare keys: if magazine doesn't have key -> False
-                        # else, if ransom[key] > magazine[key] -> False
+        # make two dicts {char:count}
+        # each key in ransom has to present in magazine, with value <= value in magazine -> True
         
-        ransom_dict = {}
-        magazine_dict = {}
-        
+        ransom = {}
         for char in ransomNote:
-            ransom_dict[char] = ransom_dict.get(char, 0) + 1
+            ransom[char] = ransom.get(char, 0) + 1
+        print("ransom", ransom)
             
+        magazines = {}
         for letter in magazine:
-            magazine_dict[letter] = magazine_dict.get(letter, 0) + 1
+            magazines[letter] = magazines.get(letter, 0) + 1
+        print("magazines", magazines)
             
-        print(ransom_dict)
-        print(magazine_dict)
-        for key in ransom_dict:
-            if key not in magazine_dict:
+        for key, value in ransom.items():
+            print(key)
+            if key not in magazines:
                 return False
-            elif ransom_dict[key] > magazine_dict[key]:
-                    return False
+            elif value > magazines[key]:
+                return False
+            
         return True
