@@ -1,15 +1,14 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        # Make 2 dictionaries {char: count}
-        # Return dict_1 == dict_2
+        # make 2 dicts {char:count}
+        # compare the two dicts: if equal -> True, else False
         
-        dict_s = {}
-        dict_t = {}
-        
+        s_dict = {}
         for char in s:
-            dict_s[char] = dict_s.get(char, 0) + 1
+            s_dict[char] = s_dict.get(char, 0) + 1
             
+        t_dict = {}
         for letter in t:
-            dict_t[letter] = dict_t.get(letter, 0) + 1
+            t_dict[letter] = t_dict.get(letter, 0) + 1
             
-        return dict_s == dict_t
+        return s_dict == t_dict
