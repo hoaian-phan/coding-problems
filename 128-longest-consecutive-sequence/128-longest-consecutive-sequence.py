@@ -17,9 +17,7 @@ class Solution:
                 while num + 1 in num_set:
                     count += 1
                     num += 1
-            
-                    
-            longest = max(longest, count)
+                longest = max(longest, count)
             
         return longest
         
