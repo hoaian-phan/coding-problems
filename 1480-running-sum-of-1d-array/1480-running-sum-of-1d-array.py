@@ -1,12 +1,12 @@
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
-        # iterate through each number in the list, add num to current sum, add sum to result list
+        # iterate through the list and add current element to sum
+        # add new sum to result list
         
-        running_sums = []
-        
-        sum = 0
+        running_sum = []
+        current_sum = 0
         for num in nums:
-            sum += num
-            running_sums.append(sum)
+            current_sum += num
+            running_sum.append(current_sum)
             
-        return running_sums
+        return running_sum
