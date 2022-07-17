@@ -19,11 +19,6 @@ class Solution:
                 j -= 1
             k -= 1
             
-        while i >= 0:
-            nums1[k] = nums1[i]
-            i -= 1
-            k -= 1
-            
         while j >= 0:
             nums1[k] = nums2[j]
             j -= 1
