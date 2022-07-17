@@ -1,27 +1,18 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        # if s is empty -> True
-        # if length of s > length of t -> False
-        # use 2 pointers to check the two strings
+        # use two pointers to compare each char
+        # if not the same, move t_pointer up to search the whole string (until a certain index)
+        # if same, move both pointer up 
         
-        if len(s) == 0:
-            return True
+        i = 0
+        j = 0
         
-#         if len(s) > len(t):
-#             return False
-        
-        s_pointer = 0
-        t_pointer = 0
-        
-        while t_pointer < len(t):
-            if t[t_pointer] == s[s_pointer]:
-                s_pointer += 1
-                if s_pointer == len(s):
-                    return True
-            t_pointer += 1
-            
-        return False
-            
-            
-                    
+        while i < len(s) and j < len(t) - len(s) + i + 1:
+            if s[i] == t[j]:
+                i += 1
+                j += 1
+            else:
+                j += 1
+                
+        return True if i >= len(s) else False
             
