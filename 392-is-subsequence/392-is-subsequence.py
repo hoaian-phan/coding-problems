@@ -4,6 +4,13 @@ class Solution:
         # if not the same, move t_pointer up to search the whole string (until a certain index)
         # if same, move both pointer up 
         
+        if len(s) == 0:
+            return True
+        
+        if len(s) > len(t):
+            return False
+    
+        
         i = 0
         j = 0
         
@@ -14,5 +21,5 @@ class Solution:
             else:
                 j += 1
                 
-        return True if i >= len(s) else False
+        return i == len(s)
             
