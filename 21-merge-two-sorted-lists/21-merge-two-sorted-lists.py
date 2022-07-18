@@ -5,35 +5,32 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        # create a new list node and a current node to traverse and add results in
+        # traverse through 2 input lists using two pointers, compare values and add to the result list
+        # edge cases: both lists are empty and one list is empty
         
-        # Create a new head node of the result llist
-        # Go through each node of the input lists, compare the two nodes, add the smaller data to the result node
-        # If one list gets to the end, link the rest of the other list to the result llist
+        if not list1 and not list2:
+            return list1
         
-        result = ListNode()
-        temp = result
+        if not list1 or not list2:
+            return list1 if not list2 else list2
         
+        result = current = ListNode()
         
         while list1 and list2:
-            if list1.val <= list2.val:
-                temp.next = list1
-                temp = list1
+            if list1.val < list2.val:
+                current.next = list1
                 list1 = list1.next
-                
             else:
-                temp.next = list2
-                temp = list2
+                current.next = list2
                 list2 = list2.next
-                
-        if not list1:
-            temp.next = list2
-        elif not list2:
-            temp.next = list1
+            current = current.next
+            
+        if list1:
+            current.next = list1
+        elif list2:
+            current.next = list2
             
         return result.next
-        
-        
+    
                 
-        
-        
-        
