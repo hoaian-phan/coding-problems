@@ -1,23 +1,25 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # create a max_profit to keep track of max profit
-        # use two pointers left (buy) and right (sell)
-        # if element at left > element at right -> update left = right because we want to buy at lower price
-        # move right along the list and calculate profit, compare and update max profit
-        # return max_profit
+        # if list has fewer than 2 elements -> return 0
+        # want to keep track of min price to buy and max profit
+        # use 2 pointers to go through possible buy and sell prices
+        
+        if len(prices) < 2:
+            return 0
         
         max_profit = 0
         
-        left = 0
-        right = 1
-        while right < len(prices):
-            if prices[right] > prices[left]:
-                profit = prices[right] - prices[left]
-                max_profit = max(max_profit, profit)
+        i = 0
+        j = 1
+        while i < len(prices)-1 and j < len(prices):
+            if prices[j] < prices[i]:
+                i = j
+                j += 1
             else:
-                left = right
-                
-            right += 1
-                
+                profit = prices[j] - prices[i]
+                max_profit = max(max_profit, profit)
+                j += 1
+        
         return max_profit
+        
         
