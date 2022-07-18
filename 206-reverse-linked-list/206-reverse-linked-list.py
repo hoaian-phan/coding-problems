@@ -5,24 +5,20 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Create a prev points to null
-        # Traverse through the llist while head is not empty
-            # next_node points to head.next
-            # head.next points to prev
-            # prev is head
-            # head is next_node
-        # Return prev
+        # use 3 pointers: current, previous, next to keep track and reverse the llist
+        
+        if not head:
+            return head
         
         
-        prev = None
-        next_node = None
+        previous = None
+        current = head
+        next_pt = None
         
-        while head:
-            next_node = head.next
-            head.next = prev
-            prev = head
-            head = next_node
+        while current:
+            next_pt = current.next
+            current.next = previous
+            previous = current
+            current = next_pt
             
-        return prev
-            
-        
+        return previous
