@@ -5,32 +5,22 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # head is null -> return null
-        # use 2 pointers: i to traverse the linked list, j to keep track of middle node
-        # j traverse behind i
-        
+        # if llist is empty -> return llist
+        # use current and mid to keep track and traverse through the llist
+        # current traverse at 2 times faster than mid
         
         if not head:
-            return None
+            return head
         
         current = head
         mid = current
         
-        while current:
-            if current.next:
-                if current.next.next:
-                    mid = mid.next
-                    current = current.next.next
-                
-                else:
-                    mid = mid.next
-                    current = current.next
-                    
+        while current.next:
+            if current.next.next:
+                mid = mid.next
+                current = current.next.next
             else:
-                print("inside", mid)
-                return mid
-        
-        print("return", mid)        
-        return mid
+                mid = mid.next
+                current = current.next
                 
-        
+        return mid
