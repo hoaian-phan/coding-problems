@@ -6,16 +6,13 @@ class Solution:
         
         maps = {}
         length = 0
-        is_odd = False
         
         for char in s:
             maps[char] = maps.get(char, 0) + 1
             
         for value in maps.values():
-            if value % 2 == 0:
-                length += value
-            elif value % 2 == 1:
-                length += value - 1
-                is_odd = True
+            length += value // 2 * 2
+            if value % 2 == 1 and length % 2 == 0:
+                length += 1
                 
-        return length + 1 if is_odd else length
+        return length 
