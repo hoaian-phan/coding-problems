@@ -1,25 +1,20 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # if list has fewer than 2 elements -> return 0
-        # want to keep track of min price to buy and max profit
-        # use 2 pointers to go through possible buy and sell prices
-        
+        # if prices have less than 2 items -> return 0
+        # need to keep track of min price to buy
+        # need to keep track of max profit so far
+        import math
         if len(prices) < 2:
             return 0
         
+        min_price = math.inf
         max_profit = 0
         
-        i = 0
-        j = 1
-        while i < len(prices)-1 and j < len(prices):
-            if prices[j] < prices[i]:
-                i = j
-                j += 1
+        for price in prices:
+            if price < min_price:
+                min_price = price
             else:
-                profit = prices[j] - prices[i]
+                profit = price - min_price
                 max_profit = max(max_profit, profit)
-                j += 1
-        
+                
         return max_profit
-        
-        
