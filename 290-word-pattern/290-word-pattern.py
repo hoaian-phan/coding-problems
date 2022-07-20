@@ -11,19 +11,14 @@ class Solution:
             return False
         
         pattern_dict = {}
-        value_set = set()
         
-        for i in range(len(pattern)):
-            print(pattern_dict)
-            if pattern[i] not in pattern_dict and words[i] not in value_set:
-                pattern_dict[pattern[i]] = words[i]
-                value_set.add(words[i])
-            elif pattern[i] not in pattern_dict and words[i] in value_set:
+        for char, word in zip(pattern, words):
+            if char not in pattern_dict:
+                if word in pattern_dict.values():
+                    return False
+                pattern_dict[char] = word
+            elif word != pattern_dict[char]:
                 return False
-            elif pattern[i] in pattern_dict and words[i] != pattern_dict[pattern[i]]:
-                print(pattern[i], pattern_dict[pattern[i]] )
-                return False
-    
             
         return True
             
