@@ -1,26 +1,21 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        # Create a dict {char:count} for the input string
-        # longest_palindrome = add all even values
-                    # then plus all odd values - 1
-                    # if there is a value = 1 -> plus 1
-                
-        character_count = {}
+        # use hashmap to keep track of the chars and their frequencies {char:frequency}
+        # sum even frequencies and store in result
+        # if there is an odd frequency, add it in result too
+        
+        maps = {}
+        length = 0
+        is_odd = False
+        
         for char in s:
-            character_count[char] = character_count.get(char, 0) + 1
+            maps[char] = maps.get(char, 0) + 1
             
-        print(character_count)
-        
-        longest_palindrome_length = 0
-        
-        for value in character_count.values():
-            print(value, longest_palindrome_length)
+        for value in maps.values():
             if value % 2 == 0:
-                longest_palindrome_length += value
+                length += value
             elif value % 2 == 1:
-                longest_palindrome_length += (value - 1)
-        
-        if longest_palindrome_length < len(s):
-            return longest_palindrome_length + 1
-        
-        return longest_palindrome_length
+                length += value - 1
+                is_odd = True
+                
+        return length + 1 if is_odd else length
