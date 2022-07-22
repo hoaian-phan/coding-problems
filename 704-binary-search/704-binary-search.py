@@ -1,10 +1,8 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        # use binary search
         
         start = 0
         end = len(nums) - 1
-        
         
         while start < end:
             mid = (start + end) // 2
@@ -16,5 +14,3 @@ class Solution:
                 return mid
             
         return start if nums[start] == target else -1
-            
-            
