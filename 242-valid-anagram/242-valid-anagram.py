@@ -1,14 +1,21 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        # make 2 dicts {char:count}
-        # compare the two dicts: if equal -> True, else False
+        # use one dictionary for s, and iterate through t to check for existence
+        if len(s) != len(t):
+            return False
         
         s_dict = {}
         for char in s:
             s_dict[char] = s_dict.get(char, 0) + 1
             
-        t_dict = {}
         for letter in t:
-            t_dict[letter] = t_dict.get(letter, 0) + 1
-            
-        return s_dict == t_dict
+            if letter not in s_dict:
+                return False
+            elif s_dict[letter] == 0:
+                return False
+            else:
+                s_dict[letter] -= 1
+                
+        return True
+        
+        
