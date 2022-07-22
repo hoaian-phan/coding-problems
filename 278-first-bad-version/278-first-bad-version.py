@@ -3,19 +3,17 @@
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
-        # use binary search algorithm to find first bad version
+        # use binary search algorithm
         
         start = 0
         end = n - 1
         
         while start < end:
-            checking = (start + end) // 2
-            if isBadVersion(checking):
-                end = checking - 1
-            elif not isBadVersion(checking):
-                start = checking + 1
-                
-        if isBadVersion(start):
-            return start
-        elif not isBadVersion(start):
-            return start + 1
+            mid = (start + end) // 2
+            if isBadVersion(mid):
+                end = mid - 1
+            else:
+                start = mid + 1
+        
+        return start if isBadVersion(start) else start + 1
+            
