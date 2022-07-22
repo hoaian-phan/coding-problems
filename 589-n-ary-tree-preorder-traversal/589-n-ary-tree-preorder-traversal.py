@@ -8,18 +8,37 @@ class Node:
 
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-        # using depth first search algorithm
+        # iteratively:
+        from collections import deque
+        
+        if not root: return
         
         results = []
+        queue = deque([root])
         
-        def dfs(node):
-            if not node: return
-            
+        while queue:
+            node = queue.popleft()
             results.append(node.val)
-            for child in node.children:
-                dfs(child)
-        
-        dfs(root)
-        
+
+            for child in reversed(node.children):
+                queue.appendleft(child)
+            
         return results
+        
+        
+        
+        # using depth first search algorithm, recursively
+        
+#         results = []
+        
+#         def dfs(node):
+#             if not node: return
+            
+#             results.append(node.val)
+#             for child in node.children:
+#                 dfs(child)
+        
+#         dfs(root)
+        
+#         return results
         
