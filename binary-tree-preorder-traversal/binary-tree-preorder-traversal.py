@@ -6,21 +6,20 @@
 #         self.right = right
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        # iteratively
-        from collections import deque
+        # iteratively using stack
         
         results = []
         
         if not root: return results
         
-        possible_nodes = deque([root])
+        possible_nodes = [root]
         while possible_nodes:
-            node = possible_nodes.popleft()
+            node = possible_nodes.pop()
             results.append(node.val)
             if node.right:
-                possible_nodes.appendleft(node.right)
+                possible_nodes.append(node.right)
             if node.left:
-                possible_nodes.appendleft(node.left)
+                possible_nodes.append(node.left)
             
                 
         return results
