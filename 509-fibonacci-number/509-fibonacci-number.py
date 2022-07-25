@@ -1,12 +1,17 @@
 class Solution:
     def fib(self, n: int) -> int:
-        # Use cache 
         
-        cache = {0: 0, 1: 1}
+        memo = {}
         
-        for n in range(2, n+1):
-            cache[n] = cache[n-1] + cache[n-2]
+        if n in memo: return memo[n]
         
-        return cache[n]
-        
+        for i in range(n+1):
+            if i == 0:
+                memo[i] = 0
+            elif i == 1:
+                memo[i] = 1
+            else:
+                memo[i] = memo[i-1] + memo[i-2]
+                
+        return memo[n]
         
