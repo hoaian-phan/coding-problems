@@ -3,6 +3,7 @@ class Solution:
         # convert to string
         # check for palindrome as usual
         
+        if x < 0: return False
         
         string = str(x)
         for i in range(len(string)//2):
