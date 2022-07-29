@@ -7,11 +7,8 @@ class Solution:
         for path in paths:
             content = path.split()
             print(content)
-            directory = content[0]
-            files = content[1:]
-            print(directory, files)
-            for file in files:
-                file_path = directory + '/' + file
+            for i in range(1, len(content)):
+                file_path = content[0] + '/' + content[i]
                 all_files.append(file_path)
                 
         print("all_files", all_files)
