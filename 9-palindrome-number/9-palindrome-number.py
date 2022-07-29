@@ -1,24 +1,21 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        # without converting to str
-        
+        # without converting to str, reverse half of the input number
         if x == 0:
             return True
         
         if x < 0 or x % 10 == 0:
             return False
         
+        h_reverse = 0
         
-        reverse = 0
-        temp = x
-        
-        while temp > 0:
-            remainder = temp % 10
-            reverse = reverse * 10 + remainder
-            temp = temp // 10
-        print(x, reverse)
+        while x > h_reverse:
+            remainder = x % 10
+            h_reverse = h_reverse * 10 + remainder
+            x = x // 10
             
-        return x == reverse
+        
+        return True if (h_reverse // 10 == x) or (h_reverse == x) else False
         
         
         
@@ -29,8 +26,25 @@ class Solution:
         
         
         
+        # without converting to str, reverse the whole input number
+        
+#         if x == 0:
+#             return True
+        
+#         if x < 0 or x % 10 == 0:
+#             return False
         
         
+#         reverse = 0
+#         temp = x
+        
+#         while temp > 0:
+#             remainder = temp % 10
+#             reverse = reverse * 10 + remainder
+#             temp = temp // 10
+#         print(x, reverse)
+            
+#         return x == reverse
         
         
         # convert to string
