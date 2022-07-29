@@ -1,25 +1,19 @@
 class PhoneDirectory:
-    from collections import deque
 
     def __init__(self, maxNumbers: int):
-        self.available = deque()
-        for i in range(maxNumbers):
-            self.available.append(i)
-        
+        self.available = set(range(maxNumbers))
         
 
     def get(self) -> int:
-        return self.available.popleft() if self.available else -1
+        return self.available.pop() if self.available else -1
         
 
     def check(self, number: int) -> bool:
-        print(self.available)
         return True if number in self.available else False
 
 
     def release(self, number: int) -> None:
-        if number not in self.available:
-            self.available.append(number)
+        self.available.add(number)
 
 
 # Your PhoneDirectory object will be instantiated and called as such:
